@@ -8,16 +8,18 @@ public class Pessoa {
     private Integer telefone;
     private Ocupacao ocupacao;
     private double valorPagar;
+    private Endereco endereco;
 
     public Pessoa() {
 
     }
 
-    public Pessoa(Integer id, String nome, Integer telefone, Ocupacao ocupacao) {
+    public Pessoa(Integer id, String nome, Integer telefone, Ocupacao ocupacao, Endereco endereco) {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
         this.ocupacao = ocupacao;
+        this.endereco = endereco;
     }
 
     public Integer getId() {
@@ -54,5 +56,13 @@ public class Pessoa {
 
     public void setValorPagar(double valorPagar) {
         this.valorPagar = valorPagar;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 }
