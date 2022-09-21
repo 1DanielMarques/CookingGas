@@ -65,4 +65,14 @@ public class Pessoa {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
+    @Override
+    public String toString() {
+        return   "[ID] > " + id
+                +"\n[NOME] > " + nome
+                +"\n[ENDERECO]" + endereco
+                +"\n[CEL] > " + telefone
+                +"\n[OCUPACAO] > " + ocupacao
+                +"\n[DEVENDO] > R$" + String.format("%.2f",valorPagar);
+    }
 }
