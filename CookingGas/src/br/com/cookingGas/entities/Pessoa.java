@@ -3,7 +3,6 @@ package br.com.cookingGas.entities;
 import br.com.cookingGas.entities.enums.Ocupacao;
 
 public class Pessoa {
-    private Integer id;
     private String nome;
     private Integer telefone;
     private Ocupacao ocupacao;
@@ -14,16 +13,11 @@ public class Pessoa {
 
     }
 
-    public Pessoa(Integer id, String nome, Integer telefone, Ocupacao ocupacao, Endereco endereco) {
-        this.id = id;
+    public Pessoa(String nome, Integer telefone, Ocupacao ocupacao, Endereco endereco) {
         this.nome = nome;
         this.telefone = telefone;
         this.ocupacao = ocupacao;
         this.endereco = endereco;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public String getNome() {
@@ -68,11 +62,10 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return   "[ID] > " + id
-                +"\n[NOME] > " + nome
-                +"\n[ENDERECO]" + endereco
-                +"\n[CEL] > " + telefone
-                +"\n[OCUPACAO] > " + ocupacao
-                +"\n[DEVENDO] > R$" + String.format("%.2f",valorPagar);
+        return "[NOME] > " + nome
+                + "\n[ENDERECO]" + endereco
+                + "\n[CEL] > " + telefone
+                + "\n[OCUPACAO] > " + ocupacao
+                + "\n[DEVENDO] > R$" + String.format("%.2f", valorPagar);
     }
 }

@@ -20,6 +20,7 @@ public class Program {
                 case 1:
                     System.out.println("Registrar");
 
+
                     break;
                 case 2:
                     System.out.println("Dados");
