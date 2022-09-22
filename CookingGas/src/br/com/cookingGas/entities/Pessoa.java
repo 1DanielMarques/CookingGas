@@ -16,6 +16,7 @@ public class Pessoa {
     private LocalDate dataPagamento;
 
     private DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("dd/MM");
 
     public Pessoa() {
 
@@ -76,11 +77,11 @@ public class Pessoa {
     }
 
     public String getDataPagamento() {
-        return dataPagamento.format(fmt);
+        return dataPagamento.format(fmt2);
     }
 
-    public void setDataPagamento(LocalDate dataPagamento) {
-        this.dataPagamento = dataPagamento;
+    public void setDataPagamento(String dataPagamento) {
+        this.dataPagamento = LocalDate.parse(dataPagamento,fmt);
     }
 
     @Override
@@ -90,6 +91,7 @@ public class Pessoa {
                 + "\n[ENDERECO] > " + endereco.toString()
                 + "\n[CEL] > " + telefone
                 + "\n[OCUPACAO] > " + ocupacao
-                + "\n[DEVENDO] > R$" + String.format("%.2f", valorPagar);
+                + "\n[DEVENDO] > R$" + String.format("%.2f", valorPagar)
+                + "\n[DATA PAGAMENTO] > " +this.getDataPagamento();
     }
 }
