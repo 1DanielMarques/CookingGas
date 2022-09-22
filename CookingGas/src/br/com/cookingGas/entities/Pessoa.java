@@ -2,12 +2,16 @@ package br.com.cookingGas.entities;
 
 import br.com.cookingGas.entities.enums.Ocupacao;
 
+import java.time.LocalDate;
+
 public class Pessoa {
     private String nome;
     private String telefone;
     private Ocupacao ocupacao;
     private double valorPagar;
     private Endereco endereco;
+
+    private LocalDate dataCadastro;
 
     public Pessoa() {
 
@@ -57,6 +61,14 @@ public class Pessoa {
 
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
+    }
+
+    public void setDataCadastro(LocalDate dataCadastro) {
+        this.dataCadastro = dataCadastro;
+    }
+
+    public LocalDate getDataCadastro() {
+        return this.dataCadastro;
     }
 
     @Override
