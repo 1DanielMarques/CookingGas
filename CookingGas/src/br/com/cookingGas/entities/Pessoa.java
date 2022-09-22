@@ -3,6 +3,8 @@ package br.com.cookingGas.entities;
 import br.com.cookingGas.entities.enums.Ocupacao;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class Pessoa {
     private String nome;
@@ -12,6 +14,8 @@ public class Pessoa {
     private Endereco endereco;
 
     private LocalDate dataCadastro;
+
+    private DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public Pessoa() {
 
@@ -67,13 +71,14 @@ public class Pessoa {
         this.dataCadastro = dataCadastro;
     }
 
-    public LocalDate getDataCadastro() {
-        return this.dataCadastro;
+    public String getDataCadastro() {
+        return this.dataCadastro.format(fmt);
     }
 
     @Override
     public String toString() {
-        return "[NOME] > " + nome
+        return  "[DATA CADASTRO] > " + this.getDataCadastro()
+                + "\n[NOME] > " + nome
                 + "\n[ENDERECO] > " + endereco.toString()
                 + "\n[CEL] > " + telefone
                 + "\n[OCUPACAO] > " + ocupacao

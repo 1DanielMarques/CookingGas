@@ -4,6 +4,7 @@ import br.com.cookingGas.entities.Endereco;
 import br.com.cookingGas.entities.Pessoa;
 import br.com.cookingGas.entities.enums.Ocupacao;
 
+import java.time.LocalDate;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -68,6 +69,7 @@ public class Program {
                     System.out.print("[DEVENDO] > R$");
                     double valorPagar = sc.nextDouble();
                     p.setValorPagar(valorPagar);
+                    p.setDataCadastro(LocalDate.now());
                     break;
                 case 2:
                     System.out.println("Dados");
