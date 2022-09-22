@@ -4,7 +4,7 @@ import br.com.cookingGas.entities.enums.Ocupacao;
 
 public class Pessoa {
     private String nome;
-    private Integer telefone;
+    private String telefone;
     private Ocupacao ocupacao;
     private double valorPagar;
     private Endereco endereco;
@@ -13,10 +13,9 @@ public class Pessoa {
 
     }
 
-    public Pessoa(String nome, Integer telefone, Ocupacao ocupacao, Endereco endereco) {
+    public Pessoa(String nome, String telefone, Endereco endereco) {
         this.nome = nome;
         this.telefone = telefone;
-        this.ocupacao = ocupacao;
         this.endereco = endereco;
     }
 
@@ -28,11 +27,11 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public Integer getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(Integer telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -63,7 +62,7 @@ public class Pessoa {
     @Override
     public String toString() {
         return "[NOME] > " + nome
-                + "\n[ENDERECO]" + endereco
+                + "\n[ENDERECO] > " + endereco.toString()
                 + "\n[CEL] > " + telefone
                 + "\n[OCUPACAO] > " + ocupacao
                 + "\n[DEVENDO] > R$" + String.format("%.2f", valorPagar);

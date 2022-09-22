@@ -3,16 +3,16 @@ package br.com.cookingGas.entities;
 public class Endereco {
     String bairro;
     String rua;
-    Integer numero;
+    Integer numeroCasa;
 
     public Endereco() {
 
     }
 
-    public Endereco(String bairro, String rua, Integer numero) {
+    public Endereco(String bairro, String rua, Integer numeroCasa) {
         this.bairro = bairro;
         this.rua = rua;
-        this.numero = numero;
+        this.numeroCasa = numeroCasa;
     }
 
     public String getBairro() {
@@ -31,11 +31,18 @@ public class Endereco {
         this.rua = rua;
     }
 
-    public Integer getNumero() {
-        return numero;
+    public Integer getNumeroCasa() {
+        return numeroCasa;
     }
 
-    public void setNumero(Integer numero) {
-        this.numero = numero;
+    public void setNumeroCasa(Integer numeroCasa) {
+        this.numeroCasa = numeroCasa;
+    }
+
+    @Override
+    public String toString() {
+        return "Bairro: " + bairro
+                + " | Rua: " + rua
+                + " | Numero: " + numeroCasa;
     }
 }
