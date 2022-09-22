@@ -12,8 +12,8 @@ public class Pessoa {
     private Ocupacao ocupacao;
     private double valorPagar;
     private Endereco endereco;
-
     private LocalDate dataCadastro;
+    private LocalDate dataPagamento;
 
     private DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -72,7 +72,15 @@ public class Pessoa {
     }
 
     public String getDataCadastro() {
-        return this.dataCadastro.format(fmt);
+        return dataCadastro.format(fmt);
+    }
+
+    public String getDataPagamento() {
+        return dataPagamento.format(fmt);
+    }
+
+    public void setDataPagamento(LocalDate dataPagamento) {
+        this.dataPagamento = dataPagamento;
     }
 
     @Override

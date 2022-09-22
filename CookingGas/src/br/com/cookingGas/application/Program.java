@@ -69,11 +69,16 @@ public class Program {
                     System.out.print("[DEVENDO] > R$");
                     double valorPagar = sc.nextDouble();
                     p.setValorPagar(valorPagar);
+                    System.out.print("[DATA RECEBER] > (DD/MM)");
+                    String diaMes = sc.next();
+
+
+
                     p.setDataCadastro(LocalDate.now());
                     break;
                 case 2:
                     System.out.println("Dados");
-                    System.out.println(p.toString());
+                    System.out.println(p);
                     break;
                 case 3:
                     System.out.println("Alterar");
