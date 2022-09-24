@@ -104,10 +104,16 @@ public class Program {
         System.out.print("[DEVENDO] > R$");
         double valorPagar = sc.nextDouble();
         p.setValorPagar(valorPagar);
-        //dataReceber(p);
+        dataReceber(p);
         p.setDataCadastro(LocalDate.now());
     }
 
+    public static void dataReceber(Pessoa p) {
+        System.out.print("[DATA RECEBER] (DD/MM) > ");
+        String dataPagamento = sc.next();
+        dataPagamento = dataPagamento + "/" + LocalDate.now().getYear();
+        p.setDataPagamento(dataPagamento);
+    }
     public static void setOcupacao(Pessoa p) {
         System.out.println("-OCUPAÇÃO-");
         System.out.println("1 - Empregado");
@@ -165,7 +171,7 @@ public class Program {
                 p.setValorPagar(sc.nextDouble());
                 break;
             case 8:
-                //dataReceber(p);
+                dataReceber(p);
                 break;
         }
 
