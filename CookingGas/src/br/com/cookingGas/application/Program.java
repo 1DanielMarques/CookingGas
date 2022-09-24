@@ -26,7 +26,7 @@ public class Program {
             switch (opcao) {
                 case 1:
                     System.out.println("Registrar");
-                    insereDados(p,endereco);
+                    insereDados(p, endereco);
                     break;
                 case 2:
                     System.out.println("Dados");
@@ -39,9 +39,24 @@ public class Program {
                     int opcaoAlt = sc.nextInt();
                     switch (opcaoAlt) {
                         case 1:
-                            insereDados(p,endereco);
+                            insereDados(p, endereco);
                             break;
                         case 2:
+                            int opcaoDados = 0;
+                            do {
+                                System.out.println("1 - Nome");
+                                System.out.println("2 - Telefone");
+                                System.out.println("3 - Bairro");
+                                System.out.println("4 - Rua");
+                                System.out.println("5 - Numero casa");
+                                System.out.println("6 - Ocupação");
+                                System.out.println("7 - Valor a pagar");
+                                System.out.println("8 - Data pagamento");
+                                System.out.println("9 - Finalizar");
+                                opcaoDados = sc.nextInt();
+
+
+                            } while (opcaoDados != 9);
 
                             break;
 
