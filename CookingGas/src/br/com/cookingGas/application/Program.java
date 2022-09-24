@@ -9,16 +9,11 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Program {
-    public static void main(String[] args) {
-        Locale.setDefault(Locale.US);
-        Scanner sc = new Scanner(System.in);
-        Pessoa p = new Pessoa();
-        String nome;
-        String tel;
-        String bairro;
-        String rua;
-        int numeroCasa;
+    public static Scanner sc = new Scanner(System.in);
 
+    public static void main(String[] args) {
+        Pessoa p = new Pessoa();
+        Endereco endereco = new Endereco();
         int opcao = 0;
         do {
             System.out.println();
@@ -31,49 +26,7 @@ public class Program {
             switch (opcao) {
                 case 1:
                     System.out.println("Registrar");
-                    System.out.print("[NOME] > ");
-                    sc.nextLine();
-                    nome = sc.nextLine();
-                    System.out.print("[TELEFONE] > ");
-                    tel = sc.next();
-                    System.out.println("-ENDEREÇO-");
-                    System.out.print("[BAIRRO] > ");
-                    sc.nextLine();
-                    bairro = sc.nextLine();
-                    System.out.print("[RUA] > ");
-                    rua = sc.nextLine();
-                    System.out.print("[NUMERO CASA] > ");
-                    numeroCasa = sc.nextInt();
-                    Endereco endereco = new Endereco(bairro, rua, numeroCasa);
-                    p.setNome(nome);
-                    p.setTelefone(tel);
-                    p.setEndereco(endereco);
-                    System.out.println("-OCUPAÇÃO-");
-                    System.out.println("1 - Empregado");
-                    System.out.println("2 - Aposentado");
-                    System.out.println("3 - Comércio");
-                    int ocupacao = sc.nextInt();
-                    switch (ocupacao) {
-                        case 1:
-                            p.setOcupacao(Ocupacao.EMPREGADO);
-                            break;
-                        case 2:
-                            p.setOcupacao(Ocupacao.APOSENTADO);
-                            break;
-                        case 3:
-                            p.setOcupacao(Ocupacao.COMERCIO);
-                            break;
-                        default:
-                            p.setOcupacao(Ocupacao.DESEMPREGADO);
-                    }
-                    System.out.print("[DEVENDO] > R$");
-                    double valorPagar = sc.nextDouble();
-                    p.setValorPagar(valorPagar);
-                    System.out.print("[DATA RECEBER] (DD/MM) > ");
-                    String dataPagamento = sc.next();
-                    dataPagamento = dataPagamento + "/"+LocalDate.now().getYear();
-                    p.setDataPagamento(dataPagamento);
-                    p.setDataCadastro(LocalDate.now());
+                    insereDados(p,endereco);
                     break;
                 case 2:
                     System.out.println("Dados");
@@ -81,6 +34,19 @@ public class Program {
                     break;
                 case 3:
                     System.out.println("Alterar");
+                    System.out.println("1 - Alterar todos os dados");
+                    System.out.println("2 - Alterar dados específicos");
+                    int opcaoAlt = sc.nextInt();
+                    switch (opcaoAlt) {
+                        case 1:
+                            insereDados(p,endereco);
+                            break;
+                        case 2:
+
+                            break;
+
+                    }
+
                     break;
                 case 4:
                     System.out.println("Deletar");
@@ -97,6 +63,54 @@ public class Program {
 
 
         sc.close();
+    }
+
+    public static void insereDados(Pessoa p, Endereco endereco) {
+        System.out.print("[NOME] > ");
+        sc.nextLine();
+        String nome = sc.nextLine();
+        System.out.print("[TELEFONE] > ");
+        String tel = sc.next();
+        System.out.println("-ENDEREÇO-");
+        System.out.print("[BAIRRO] > ");
+        sc.nextLine();
+        String bairro = sc.nextLine();
+        System.out.print("[RUA] > ");
+        String rua = sc.nextLine();
+        System.out.print("[NUMERO CASA] > ");
+        int numeroCasa = sc.nextInt();
+        endereco.setBairro(bairro);
+        endereco.setRua(rua);
+        endereco.setNumeroCasa(numeroCasa);
+        p.setNome(nome);
+        p.setTelefone(tel);
+        p.setEndereco(endereco);
+        System.out.println("-OCUPAÇÃO-");
+        System.out.println("1 - Empregado");
+        System.out.println("2 - Aposentado");
+        System.out.println("3 - Comércio");
+        int ocupacao = sc.nextInt();
+        switch (ocupacao) {
+            case 1:
+                p.setOcupacao(Ocupacao.EMPREGADO);
+                break;
+            case 2:
+                p.setOcupacao(Ocupacao.APOSENTADO);
+                break;
+            case 3:
+                p.setOcupacao(Ocupacao.COMERCIO);
+                break;
+            default:
+                p.setOcupacao(Ocupacao.DESEMPREGADO);
+        }
+        System.out.print("[DEVENDO] > R$");
+        double valorPagar = sc.nextDouble();
+        p.setValorPagar(valorPagar);
+        System.out.print("[DATA RECEBER] (DD/MM) > ");
+        String dataPagamento = sc.next();
+        dataPagamento = dataPagamento + "/" + LocalDate.now().getYear();
+        p.setDataPagamento(dataPagamento);
+        p.setDataCadastro(LocalDate.now());
     }
 
 }
