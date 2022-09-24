@@ -54,8 +54,7 @@ public class Program {
                                 System.out.println("8 - Data pagamento");
                                 System.out.println("9 - Finalizar");
                                 opcaoDados = sc.nextInt();
-
-
+                                dadosEspecificos(p,endereco,opcaoDados);
                             } while (opcaoDados != 9);
 
                             break;
@@ -94,38 +93,60 @@ public class Program {
         String rua = sc.nextLine();
         System.out.print("[NUMERO CASA] > ");
         int numeroCasa = sc.nextInt();
+        //setOcupacao(p);
         endereco.setBairro(bairro);
         endereco.setRua(rua);
         endereco.setNumeroCasa(numeroCasa);
         p.setNome(nome);
         p.setTelefone(tel);
         p.setEndereco(endereco);
-        System.out.println("-OCUPAÇÃO-");
-        System.out.println("1 - Empregado");
-        System.out.println("2 - Aposentado");
-        System.out.println("3 - Comércio");
-        int ocupacao = sc.nextInt();
-        switch (ocupacao) {
-            case 1:
-                p.setOcupacao(Ocupacao.EMPREGADO);
-                break;
-            case 2:
-                p.setOcupacao(Ocupacao.APOSENTADO);
-                break;
-            case 3:
-                p.setOcupacao(Ocupacao.COMERCIO);
-                break;
-            default:
-                p.setOcupacao(Ocupacao.DESEMPREGADO);
-        }
+
         System.out.print("[DEVENDO] > R$");
         double valorPagar = sc.nextDouble();
         p.setValorPagar(valorPagar);
-        System.out.print("[DATA RECEBER] (DD/MM) > ");
-        String dataPagamento = sc.next();
-        dataPagamento = dataPagamento + "/" + LocalDate.now().getYear();
-        p.setDataPagamento(dataPagamento);
+        //dataReceber(p);
         p.setDataCadastro(LocalDate.now());
+    }
+
+
+
+    public static void dadosEspecificos(Pessoa p, Endereco endereco, int opcao) {
+        switch (opcao) {
+            case 1:
+                System.out.print("[NOME] > ");
+                sc.nextLine();
+                p.setNome(sc.nextLine());
+                break;
+            case 2:
+                System.out.print("[TELEFONE] > ");
+                p.setTelefone(sc.next());
+                break;
+            case 3:
+                System.out.print("[BAIRRO] > ");
+                sc.nextLine();
+                endereco.setBairro(sc.nextLine());
+                break;
+            case 4:
+                System.out.print("[RUA] > ");
+                sc.nextLine();
+                endereco.setRua(sc.nextLine());
+                break;
+            case 5:
+                System.out.print("[NUMERO CASA] > ");
+                endereco.setNumeroCasa(sc.nextInt());
+                break;
+            case 6:
+               // setOcupacao(p);
+                break;
+            case 7:
+                System.out.print("[DEVENDO] > R$");
+                p.setValorPagar(sc.nextDouble());
+                break;
+            case 8:
+                //dataReceber(p);
+                break;
+        }
+
     }
 
 }
