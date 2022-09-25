@@ -5,7 +5,6 @@ import br.com.cookingGas.entities.Pessoa;
 import br.com.cookingGas.entities.enums.Ocupacao;
 
 import java.time.LocalDate;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Program {
@@ -54,16 +53,14 @@ public class Program {
                                 System.out.println("8 - Data pagamento");
                                 System.out.println("9 - Finalizar");
                                 opcaoDados = sc.nextInt();
-                                dadosEspecificos(p,endereco,opcaoDados);
+                                dadosEspecificos(p, endereco, opcaoDados);
                             } while (opcaoDados != 9);
-
                             break;
-
                     }
-
                     break;
                 case 4:
                     System.out.println("Deletar");
+                    p = null;
                     break;
                 case 9:
                     System.out.println("Programa finalizado");
@@ -71,12 +68,7 @@ public class Program {
                 default:
                     System.out.println("Opção inválida!");
             }
-
-
         } while (opcao != 9);
-
-
-        sc.close();
     }
 
     public static void insereDados(Pessoa p, Endereco endereco) {
@@ -114,6 +106,7 @@ public class Program {
         dataPagamento = dataPagamento + "/" + LocalDate.now().getYear();
         p.setDataPagamento(dataPagamento);
     }
+
     public static void setOcupacao(Pessoa p) {
         System.out.println("-OCUPAÇÃO-");
         System.out.println("1 - Empregado");
@@ -164,7 +157,7 @@ public class Program {
                 endereco.setNumeroCasa(sc.nextInt());
                 break;
             case 6:
-               setOcupacao(p);
+                setOcupacao(p);
                 break;
             case 7:
                 System.out.print("[DEVENDO] > R$");
@@ -174,7 +167,5 @@ public class Program {
                 dataReceber(p);
                 break;
         }
-
     }
-
 }
