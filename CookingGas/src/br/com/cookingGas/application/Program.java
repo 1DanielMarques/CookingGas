@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 public class Program {
     public static Scanner sc = new Scanner(System.in);
-
     public static void main(String[] args) {
         Pessoa p = new Pessoa();
         Endereco endereco = new Endereco();
@@ -24,15 +23,15 @@ public class Program {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Registrar");
+                    System.out.println("-Registrar cliente-");
                     insereDados(p, endereco);
                     break;
                 case 2:
-                    System.out.println("Dados");
+                    System.out.println("-Dados do cliente-");
                     System.out.println(p);
                     break;
                 case 3:
-                    System.out.println("Alterar");
+                    System.out.println("-Alterar dados-");
                     System.out.println("1 - Alterar todos os dados");
                     System.out.println("2 - Alterar dados específicos");
                     int opcaoAlt = sc.nextInt();
@@ -70,7 +69,6 @@ public class Program {
             }
         } while (opcao != 9);
     }
-
     public static void insereDados(Pessoa p, Endereco endereco) {
         System.out.print("[NOME] > ");
         sc.nextLine();
@@ -92,21 +90,18 @@ public class Program {
         p.setNome(nome);
         p.setTelefone(tel);
         p.setEndereco(endereco);
-
         System.out.print("[DEVENDO] > R$");
         double valorPagar = sc.nextDouble();
         p.setValorPagar(valorPagar);
         dataReceber(p);
         p.setDataCadastro(LocalDate.now());
     }
-
     public static void dataReceber(Pessoa p) {
         System.out.print("[DATA RECEBER] (DD/MM) > ");
         String dataPagamento = sc.next();
         dataPagamento = dataPagamento + "/" + LocalDate.now().getYear();
         p.setDataPagamento(dataPagamento);
     }
-
     public static void setOcupacao(Pessoa p) {
         System.out.println("-OCUPAÇÃO-");
         System.out.println("1 - Empregado");
@@ -129,8 +124,6 @@ public class Program {
                 break;
         }
     }
-
-
     public static void dadosEspecificos(Pessoa p, Endereco endereco, int opcao) {
         switch (opcao) {
             case 1:
