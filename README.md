@@ -1,5 +1,5 @@
 # CookingGas 🚀
-O Projeto **CookingGas** foi desenvolvido a fim de trabalhar com Datas, DateTimeFormatter, conversão de data, além de conceitos de Orientação a Objetos que, neste projeto, uma Pessoa (entidade) possui um Endereço (entidade).
+O Projeto **CookingGas** foi desenvolvido a fim de trabalhar com Datas, DateTimeFormatter, conversão de data. Também coloquei em prática a utilização de ENUM, para classificar o "status" do cliente, além de conceitos de Orientação a Objetos que, neste projeto, uma Pessoa (entidade) possui um Endereço (entidade).
 
 ## Testes<br>
   
