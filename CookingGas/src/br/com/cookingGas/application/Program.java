@@ -28,7 +28,11 @@ public class Program {
                     break;
                 case 2:
                     System.out.println("-Dados do cliente-");
-                    System.out.println(p);
+                    if(p!=null) {
+                        System.out.println(p);
+                    }else{
+                        System.out.println("Não há cliente registrado");
+                    }
                     break;
                 case 3:
                     System.out.println("-Alterar dados-");
@@ -58,7 +62,7 @@ public class Program {
                     }
                     break;
                 case 4:
-                    System.out.println("Deletar");
+                    System.out.println("-Cliente deletado-");
                     p = null;
                     break;
                 case 9:
