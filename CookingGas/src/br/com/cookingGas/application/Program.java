@@ -19,6 +19,7 @@ public class Program {
             System.out.println("2 - Dados Cliente");
             System.out.println("3 - Alterar dados Cliente");
             System.out.println("4 - Deletar Cliente");
+            System.out.println("9 - Finalizar");
             opcao = sc.nextInt();
 
             switch (opcao) {
